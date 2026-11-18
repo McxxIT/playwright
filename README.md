@@ -40,6 +40,7 @@ Useful scripts:
 | `BUBBLE_API_TOKEN` | no | Settings → API → private key; enables `records.spec.ts` |
 | `BUBBLE_TEST_TYPE` | no | Data type (lowercase, no spaces), e.g. `task` |
 | `BUBBLE_TEST_FIELDS` | no | JSON body for the create/delete example, e.g. `{"Name":"QA"}` |
+| `SLOW_MO` | no | Milliseconds between browser actions, for watching headed runs. PowerShell: `$env:SLOW_MO='500'; npm run test:headed` |
 
 `.env` is ignored by git; commit only `.env.example`.
 

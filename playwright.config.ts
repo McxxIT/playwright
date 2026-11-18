@@ -17,6 +17,9 @@ const httpCredentials = appPassword
   ? { username: process.env.APP_USERNAME || 'bubble', password: appPassword }
   : undefined;
 
+// Optional: milliseconds between actions, for watching headed runs (e.g. SLOW_MO=500).
+const slowMo = Number(process.env.SLOW_MO) || 0;
+
 export default defineConfig({
   testDir: './tests',
   outputDir: './test-results',
@@ -32,6 +35,7 @@ export default defineConfig({
     // Bubble exposes an "ID attribute" per element; reuse it as the test-id.
     testIdAttribute: 'id',
     httpCredentials,
+    launchOptions: { slowMo },
     actionTimeout: 15_000,
     navigationTimeout: 45_000,
     trace: 'on-first-retry',

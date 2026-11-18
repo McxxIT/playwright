@@ -1,0 +1,6 @@
+iteration	timestamp	gaps_found	fail_count	concern_count	applied	saturation_status	loop_status	notes
+0	2026-11-18	2	0	2	0	n/a	baseline	FAST-mode outer PVL: Gate CONDITIONAL (login unverified on 13p0j; masked/plain value sync unknown)
+1	2026-11-18	0	0	0	2	n/a	cycle	vc-debugger probe resolved both concerns; vc-plan-agent SUPPLEMENT_APPLIED (2 gaps); re-validate pending
+2	2026-11-18	0	0	0	2	n/a	HALTED_SUCCESS	Re-validate Gate PASS; P1 toggle direction + P2 S4 per-row split fixed in plan
+3	2026-11-18	1	1	0	0	n/a	cycle	EVL cycle 1: S5 fails (masked keeps old value); fix = user-realistic edit (type+blur) in S5, then re-run
+4	2026-11-18	1	1	0	1	n/a	HALTED_KNOWN_GAP	vc-tester confirms 7/8; S5 = product defect (plain->masked not synced on re-mask, all 3 rows); not fixable in test code
