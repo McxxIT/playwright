@@ -6,3 +6,4 @@ playwright/.auth/
 .env
 artifacts/
 .vibecode-backup*/
+.claude/hooks/.logs/

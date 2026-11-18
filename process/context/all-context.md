@@ -1,6 +1,6 @@
 # bubble-playwright-e2e - All Context
 
-Last updated: 18-11-26 (vc-setup STUDY)
+Last updated: 2026-11-18 (vc-setup STUDY)
 
 This file is the root context entrypoint for the repo.
 
@@ -70,8 +70,8 @@ For most substantial tasks:
      between the GENERATED markers — your edits will be overwritten on the next rebuild.
      To change a row, edit the owning doc's frontmatter (description / keywords) and re-emit.
      `--check-routing` fails lint if this block drifts from the frontmatter on disk.
-     NOTE: this repo is not a git repo yet; discover-context.mjs needs `git rev-parse`, so this
-     block was written by hand to match the script's output format. Re-emit after `git init`. -->
+     NOTE (Windows): discover-context.mjs splits paths on "\\" but matches "/" regexes, so --emit-routing
+     drops every group on Windows. Block maintained by hand in the script format; re-emit on macOS/Linux/CI. -->
 
 <!-- GENERATED:routing -->
 | File | Read when |
@@ -181,7 +181,7 @@ playwright/                      (repo root; npm package "bubble-playwright-e2e"
 - **Package manager:** npm (`package-lock.json`); single package, no monorepo
 - **System under test:** a deployed Bubble.io app (no-code; no source here). Data via Bubble Data API v1.1 (`/api/1.1/obj/<type>`)
 - **Lint:** none — `npm run typecheck` (`tsc --noEmit`) is the only static check
-- **VCS / CI:** not a git repo yet; no CI configured (GitHub Actions planned later)
+- **VCS / CI:** git, GitHub remote `origin` (branch `main`); no CI configured yet (GitHub Actions planned)
 
 ## Key Patterns and Conventions
 
@@ -221,6 +221,15 @@ playwright/                      (repo root; npm package "bubble-playwright-e2e"
 
 **Switching branch for one run (PowerShell):** `$env:BASE_URL='https://<app>.bubbleapps.io/version-<branch>'; npm test`. Delete `playwright/.auth/` when switching branches/users so the session is re-created.
 
+## Open Questions and Outstanding Work
+
+- No specs or page objects yet for forms, repeating groups, or popups (see `process/features/`).
+- Bubble ID attributes still need adding in the editor for those components, per branch under test.
+- Data API seeding not wired for specific feature branches yet (`records.spec.ts` is a template).
+- No CI yet (repo is on GitHub: `origin/main`).
+- Kit validators have Windows path-separator bugs: `--emit-routing` drops groups and `validate-context-discovery` reports false "not indexed" failures. Trust `--match` keyword discovery; re-emit routing on a POSIX machine/CI.
+- GitHub Actions planned later: needs secrets for `BASE_URL`, test-user creds, optional `APP_PASSWORD` / `BUBBLE_API_TOKEN`.
+
 ## Source References
 
 - `README.md` — env vars, Bubble editor checklist, troubleshooting table
@@ -232,6 +241,6 @@ playwright/                      (repo root; npm package "bubble-playwright-e2e"
 ## Scan Metadata
 
 - Generated: 18-11-26
-- HEAD: n/a (not a git repository)
+- HEAD: 37b7e1e (main)
 - Mode: vc-setup Flow A (new), fresh scaffold
 - Package manager: npm

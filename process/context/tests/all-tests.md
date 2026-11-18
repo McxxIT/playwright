@@ -103,7 +103,7 @@ There is one runner: **Playwright** (`@playwright/test` 1.65.1, Chromium). There
 - Coverage is only login, smoke, and the Data API template. Forms, repeating groups, and popups have no specs or page objects yet (see `process/features/`).
 - `records.spec.ts` skips unless `BUBBLE_API_TOKEN` + `BUBBLE_TEST_TYPE` (+ `BUBBLE_TEST_FIELDS`) are set; seeding is wired per feature branch as needed.
 - `scripts/inspect-page.ts` only inspects the login page.
-- No CI workflow yet; no git repo yet.
+- No CI workflow yet (repo is on GitHub).
 - `retries: 0` means `trace: 'on-first-retry'` never records — use `--trace on` when debugging.
 
 ## Source Paths
