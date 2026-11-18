@@ -1,0 +1,27 @@
+{
+  "name": "bubble-playwright-e2e",
+  "version": "1.0.0",
+  "description": "Playwright + TypeScript E2E suite for a Bubble.io app",
+  "private": true,
+  "scripts": {
+    "test": "playwright test",
+    "test:headed": "playwright test --headed",
+    "test:ui": "playwright test --ui",
+    "test:debug": "playwright test --debug",
+    "codegen": "playwright codegen",
+    "report": "playwright show-report",
+    "typecheck": "tsc --noEmit",
+    "inspect": "tsx scripts/inspect-page.ts"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "devDependencies": {
+    "@playwright/test": "^1.65.1",
+    "@types/node": "^26.6.6",
+    "dotenv": "^18.0.10",
+    "tsx": "^4.23.15",
+    "typescript": "^7.0.2"
+  }
+}
